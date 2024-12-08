@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PlacemenTrack - Campus Placements Analyzer
 
 The PlacemenTrack is a cutting-edge application that revolutionizes the way educational institutions, students, and recruiters approach campus placements. This app harnesses the power of data analysis, machine learning, and web technologies to provide a comprehensive solution for optimizing the placement process.
@@ -123,3 +124,7 @@ Using the same procedures, establish a Resume Redacts workspace and update the R
 ```
 
 You can visit the application at http://localhost:3000 in development mode.
+=======
+# PlacementPulse
+A repository for our ML Project
+>>>>>>> 17db866982aea5dc6eb0fe0453584c157022cccd
