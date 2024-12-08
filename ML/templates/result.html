@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Acme', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #580978 0%, #7e3ea5 60%, #c4b0ff 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            margin: 2rem;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            display: inline-block;
+            background: linear-gradient(135deg, #399c66 0%, #4fdd64 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 250ms;
+            text-shadow: 0px 1px 0px rgb(0, 0, 0);
+        }
+
+        a:hover {
+            transform: scale(1.05);
+            background-color: #a593d9;
+        }
+
+        @media screen and (max-width: 768px) {
+            .result-container {
+                margin: 1rem;
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>{{ result }}</h1>
+        <a href="http://127.0.0.1:3001/">Go Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Acme', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #580978 0%, #7e3ea5 60%, #c4b0ff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-size: 3.5rem;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .form {
+            background: rgba(255, 255, 255, 0.05);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(14.4px);
+            -webkit-backdrop-filter: blur(14.4px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .form-group:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #f9f5f5;
+            font-weight: 500;
+            text-shadow: 0px 1px 0px rgb(0, 0, 0);
+        }
+
+        input[type="number"] {
+            width: 150px;  /* Reduced from 100% */
+            max-width: 150px;  /* Reduced from 150px */
+            padding: 0.3rem;  /* Reduced from 0.5rem */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            font-size: 0.9rem;  /* Reduced from 1rem */
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(7.7px);
+            -webkit-backdrop-filter: blur(7.7px);
+        }
+
+        input[type="submit"] {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #399c66 0%, #4fdd64 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 250ms;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto 0;
+            display: block;
+            text-shadow: 0px 1px 0px rgb(0, 0, 0);
+        }
+
+        input[type="submit"]:hover {
+            background-color: #a593d9;
+            transform: scale(1.05);
+        }
+
+        @media screen and (max-width: 920px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form {
+                padding: 2rem 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 680px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Salary Prediction Form</h1>
+        <form action="/salary" method="post" class="form">
+            <div class="grid">
+                <div class="form-group">
+                    <label>Tier:</label>
+                    <input type="number" name="tier" required min="1" max="3">
+                </div>
+
+                <div class="form-group">
+                    <label>Gender (0 for Female, 1 for Male):</label>
+                    <input type="number" name="gender" required min="0" max="1">
+                </div>
+
+                <div class="form-group">
+                    <label>CGPA:</label>
+                    <input type="number" step="0.01" name="cgpa" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Intermediate GPA:</label>
+                    <input type="number" step="0.01" name="inter_gpa" required>
+                </div>
+
+                <div class="form-group">
+                    <label>SSC GPA:</label>
+                    <input type="number" step="0.01" name="ssc_gpa" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Internships:</label>
+                    <input type="number" name="internships" required min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Number of projects:</label>
+                    <input type="number" name="projects" required min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Participation in hackathon (0 for No, 1 for Yes):</label>
+                    <input type="number" name="hackathon" required min="0" max="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Participation in Extracurricular Activities:</label>
+                    <input type="number" name="is_participated_extracurricular" required min="0" max="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Programming Languages Known:</label>
+                    <input type="number" name="no_of_programming_languages" required min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Data Structures Knowledge (0-10):</label>
+                    <input type="number" name="dsa" required min="0" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Development Knowledge (0-10):</label>
+                    <input type="number" name="mobile_dev" required min="0" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label>Web Development Knowledge (0-10):</label>
+                    <input type="number" name="web_dev" required min="0" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label>Machine Learning Knowledge (0-10):</label>
+                    <input type="number" name="Machine Learning" required min="0" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label>Cloud Knowledge (0-10):</label>
+                    <input type="number" name="cloud" required min="0" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label>Placed (0 for No, 1 for Yes):</label>
+                    <input type="number" name="placed" required min="0" max="1">
+                </div>
+
+                <input type="submit" value="Predict Salary">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

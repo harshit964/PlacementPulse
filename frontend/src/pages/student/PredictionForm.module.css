@@ -1,0 +1,57 @@
+.form {
+  background-image: url(/static/images/form_background2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  padding: 8rem 2rem 2rem 2rem;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.grid_item {
+  padding: 0.5rem;
+}
+
+.grid_item input,
+.grid_item select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.submit_button {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.submit_button:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 713px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form {
+    padding: 3rem 1rem 1rem 1rem;
+  }
+} 

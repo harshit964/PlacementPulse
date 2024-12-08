@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Acme', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #580978 0%, #7e3ea5 60%, #c4b0ff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-size: 3.5rem;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(14.4px);
+            -webkit-backdrop-filter: blur(14.4px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .form-group:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #f9f5f5;
+            font-weight: 500;
+            text-shadow: 0px 1px 0px rgb(0, 0, 0);
+        }
+
+        input[type="number"] {
+            width: 200px;
+            max-width: 200px;
+            padding: 0.3rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        input[type="submit"] {
+            grid-column: 1 / -1;
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto 0;
+            display: block;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        @media screen and (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form {
+                padding: 2rem 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Placement Prediction Form</h1>
+        <form action="/placement" method="post" class="form">
+            <div class="grid">
+                <div class="form-group">
+                    <label>Quants(0-25):</label>
+                    <input type="number" name="Quants" required min="0" max="25" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Logical Reasoning(0-25):</label>
+                    <input type="number" name="LogicalReasoning" required min="0" max="25" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Verbal(0-25):</label>
+                    <input type="number" name="Verbal" required min="0" max="25" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Programming(0-25):</label>
+                    <input type="number" name="Programming" required min="0" max="25" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>CGPA(0-10):</label>
+                    <input type="number" name="CGPA" required min="0" max="10" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label>Networking Knowledge(0-10):</label>
+                    <input type="number" name="Networking" required min="0" max="10" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Cloud Computing Knowledge (0-10):</label>
+                    <input type="number" name="CloudComp" required min="0" max="10" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Web Services Knowledge (0-10):</label>
+                    <input type="number" name="WebServices" required min="0" max="10" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Data Analytics Knowledge (0-10):</label>
+                    <input type="number" name="DataAnalytics" required min="0" max="10" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Quality Assurance(0-10)</label>
+                    <input type="nummber" name="Quality" required min="0" max="10" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>AI(0-10)</label>
+                    <input type="number" name="AI" required min="0" max="10" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Gender (0 for Female, 1 for Male):</label>
+                    <input type="number" name="Gender" required min="0" max="1">
+                </div>
+
+                <div class="form-group">
+                    <label>10th Grade Marks (%):</label>
+                    <input type="number" name="10th_marks" required min="0" max="100" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>12th Grade Marks (%):</label>
+                    <input type="number" name="12th_marks" required min="0" max="100" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>College CGPA:</label>
+                    <input type="number" name="Cgpa" required min="0" max="10" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label>Internships (0 for No, 1 for Yes):</label>
+                    <input type="number" name="Internships(Y/N)" required min="0" max="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Training (0 for No, 1 for Yes):</label>
+                    <input type="number" name="Training(Y/N)" required min="0" max="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Backlog in 5th Semester (0 for No, 1 for Yes):</label>
+                    <input type="number" name="Backlog_in_5th_sem" required min="0" max="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Innovative Project (0 for No, 1 for Yes):</label>
+                    <input type="number" name="Innovative_Project(Y/N)" required min="0" max="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Communication Level (Rate from 1 to 5):</label>
+                    <input type="number" name="Communication_level" required min="1" max="5">
+                </div>
+
+                <div class="form-group">
+                    <label>Technical Course Taken (0 for No, 1 for Yes):</label>
+                    <input type="number" name="Technical_Course(Y/N)" required min="0" max="1">
+                </div>
+
+                <input type="submit" value="Predict Placement">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
